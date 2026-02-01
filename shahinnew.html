@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahin Digital Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0070f3; 
+            --dark: #000000;
+            --ios-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 6%;
+            border-bottom: 1px solid #f2f2f2;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+        }
+
+        .logo {
+            font-family: var(--ios-font);
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .menu-dots {
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 5px;
+            color: var(--dark);
+        }
+
+        /* --- DASHBOARD SIDEBAR --- */
+        .dashboard-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            height: 100%;
+            background: var(--dark);
+            color: white;
+            z-index: 3000;
+            transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            padding: 50px 30px;
+            overflow-y: auto;
+        }
+
+        .dashboard-overlay.active { right: 0; }
+
+        .close-btn {
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin-bottom: 30px;
+            display: block;
+            text-align: right;
+        }
+
+        .dashboard-content h2 { 
+            font-size: 2rem; 
+            font-weight: 900; 
+            color: var(--primary); 
+            margin-bottom: 20px;
+        }
+
+        .dashboard-content p { 
+            font-size: 1.05rem; 
+            line-height: 1.7; 
+            color: #ddd; 
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: #111;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            margin-top: 30px;
+        }
+
+        /* --- PRICING SECTION --- */
+        .hero { text-align: center; padding: 80px 20px 40px; }
+        .hero h1 { font-size: 3.2rem; font-weight: 900; margin: 0; letter-spacing: -2px; }
+        .hero p { color: #666; font-size: 1.1rem; margin-top: 10px; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 20px 6% 80px;
+        }
+
+        .card {
+            border: 1px solid #f0f0f0;
+            border-radius: 24px;
+            padding: 40px;
+            background: #fafafa;
+            transition: 0.4s;
+        }
+
+        .card:hover { 
+            transform: scale(1.02); 
+            border-color: var(--primary); 
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .price { font-size: 2.4rem; font-weight: 900; color: var(--primary); margin: 15px 0; }
+        
+        .order-btn {
+            display: block;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 25px;
+        }
+
+        /* --- FOOTER --- */
+        footer { padding: 40px; text-align: center; background: #fff; border-top: 1px solid #eee; }
+        .social-instruction { font-size: 0.95rem; font-weight: 600; margin-bottom: 15px; color: #444; }
+        .socials a { font-size: 1.8rem; margin: 0 15px; color: var(--dark); transition: 0.3s; }
+        .socials a:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SHAHIN DIGITAL STUDIO</div>
+        <div class="menu-dots" onclick="toggleDashboard()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="dashboard-overlay" id="dashboard">
+        <span class="close-btn" onclick="toggleDashboard()">&times;</span>
+        <div class="dashboard-content">
+            <h2>Who We Are</h2>
+            <p>
+                I am Shahin, a passionate <b>video editor</b> from India, currently managing <b>4+ YouTube</b> and <b>Instagram</b> accounts while creating engaging and trendy content. 
+            </p>
+            <p>
+                I specialize in <b>velocity, shake effects, smooth transitions, phonk style, Instagram reels,</b> and high-energy party edits. My focus is on delivering high-quality, eye-catching videos that enhance digital presence and connect with audiences.
+            </p>
+            
+            <div class="highlight-box">
+                <h3>Agency Mission</h3>
+                <p>
+                    Shahin Digital Studio was founded with one goal: <b>Premium editing for everyone.</b> As I launch this agency, I am offering industry-standard quality at beginner-friendly prices. This is a limited-time opportunity to get high-end edits for a fraction of the market cost.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <header class="hero">
+        <h1>High-End Edits!</h1> <p>Expert storytelling at an unbeatable launch price.</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h3>Short Form</h3>
+            <div class="price">₹500</div>
+            <p>TikTok, Reels, and Shorts with velocity & phonk styles.</p>
+            <a href="mailto:business.aktar77@gmail.com" class="order-btn">Book Now</a>
+        </div>
+
+        <div class="card" style="border-top: 4px solid var(--primary);">
+            <h3>Long Form</h3>
+            <div class="price">₹1500+</div>
+            <p>Cinematic YouTube edits and long-form content storytelling.</p>
+            <a href="mailto:business.aktar77@gmail.com" class="order-btn" style="background: var(--primary);">Book Now</a>
+        </div>
+
+        <div class="card">
+            <h3>Thumbnails</h3>
+            <div class="price">₹1200</div>
+            <p>Eye-catching 4K designs to boost your CTR instantly.</p>
+            <a href="mailto:business.aktar77@gmail.com" class="order-btn">Book Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-instruction">To connect with me, click on the icon for LinkedIn:</div> <div class="socials">
+            <a href="https://www.linkedin.com/in/shahin-aktar-15b4a1272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p style="margin-top: 20px; font-weight: 600;">business.aktar77@gmail.com</p>
+        <p style="opacity: 0.5; font-size: 0.8rem;">© 2026 Shahin Digital Studio</p>
+    </footer>
+
+    <script>
+        function toggleDashboard() {
+            document.getElementById('dashboard').classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
